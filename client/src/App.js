@@ -6,11 +6,30 @@ function App() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  async function createUser(event) {
+    event.preventDefault()
+    const response = await fetch('http://localhost:1337/ api/users/create', {
+      method: 'POST',
+headers: {
+  'Content-Type': "application/json "
+},
+  body: JSON.stringify({
+  name,
+  email,
+  password,
+
+  }),
+})
+
+const data = await response.json()
+
+      console.log(data)
+  }
   return (
 
 <div>
   <h1>Create Login</h1>
-  <form>
+  <form onSubmit={createUser}>
   <input 
     value={name}
     onChange={(e) =>setName(e.target.value)}
