@@ -2,15 +2,16 @@ import { useState} from 'react'
 import './App.css';
 
 function App() {
+  
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   async function createUser(event) {
     event.preventDefault()
-    const response = await fetch('http://localhost:1337/ api/users/create', {
+    const response = await fetch('http://localhost:1337/api/createUser', {
       method: 'POST',
-headers: {
+      headers: {
   'Content-Type': "application/json "
 },
   body: JSON.stringify({
@@ -22,8 +23,7 @@ headers: {
 })
 
 const data = await response.json()
-
-      console.log(data)
+console.log(data);
   }
   return (
 
