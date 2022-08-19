@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import Axios from "axios";
 
 function Dashboard() {
@@ -7,7 +8,7 @@ function Dashboard() {
   const [description, setDescription] = useState("");
 
 
-  
+  const [newQty, setNewQty] = useState(0);
 
   const [recordList, setRecordList] = useState([]);
   
@@ -31,13 +32,13 @@ function Dashboard() {
   };
 
   const getRecord = () => {
-    Axios.get("http://localhost:1337/employees").then((response) => {
+    Axios.get("http://localhost:1337/record").then((response) => {
       setRecordList(response.data);
     });
   };
 
   const updateRecordQty = (id) => {
-    Axios.put("http://localhost:1337/update", { wage: newQty, id: id }).then(
+    Axios.put("http://localhost:1337/update", { qty: newQty, id: id }).then(
       (response) => {
         setRecordList(
           recordList.map((val) => {
@@ -69,13 +70,15 @@ function Dashboard() {
   return (
     <div className="App">
       <div className="information">
+      <h1>QIMS Inventory Management</h1>
+        <br></br>
         <label>Name:</label>
         <input
           type="text"
           onChange={(event) => {
             setName(event.target.value);
           }}
-        />
+        /> 
         <label>QTY:</label>
         <input
           type="number"
@@ -91,21 +94,32 @@ function Dashboard() {
           }}
                
          />
+         <br></br>
+         <br></br>
         <button onClick={addRecord}>Add Record</button>
       </div>
-      <div className="records">
+      <br></br>
+        <div className="records">
         <button onClick={getRecord}>Show Record</button>
 
         {recordList.map((val, key) => {
           return (
             <div className="record">
               <div>
+              
                 <h3>Name: {val.name}</h3>
-                <h3>QTY: {val.qty}</h3>
+                <h3>qty: {val.qty}</h3>
                 <h3>Description: {val.description}</h3>
+              
               </div>
               <div>
-                
+              <input
+                  type="text"
+                  placeholder="2000..."
+                  onChange={(event) => {
+                    setNewQty(event.target.value);
+                  }}
+                />
                 <button
                   onClick={() => {
                     updateRecordQty(val.id);
