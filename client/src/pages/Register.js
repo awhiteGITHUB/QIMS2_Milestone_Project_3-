@@ -59,6 +59,8 @@ function App() {
 				<br />
 				<br />
 				<input type="submit" value="Register" />
+				<br />
+				<h3>Please remember your password as there is no "Forgot My Password" Function at this time so if you forget your password you are SOL!" </h3>
 			</form>
 		</div>
 	)
