@@ -50,6 +50,7 @@ import { useNavigate } from 'react-router-dom'
             placeholder="Name"
           />
           <br />
+          <br />
           <input
             value={qty}
             onChange={(e) => setQty(e.target.value)}
@@ -57,12 +58,14 @@ import { useNavigate } from 'react-router-dom'
             placeholder="QTY"
           />
           <br />
+          <br />
           <input
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             type="text"
             placeholder="Description"
           />
+          <br />
           <br />
           <input type="submit" value=" Add Record" />
           <br />

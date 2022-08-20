@@ -7,7 +7,7 @@ import LandingPage from './pages/LandingPage'
 
 
 
-const API_URL = 'https://itunes.apple.com/search?term='
+
 
 
 const App = () => {

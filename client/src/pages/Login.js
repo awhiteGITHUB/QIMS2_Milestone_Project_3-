@@ -22,7 +22,7 @@ const response = await fetch('http://localhost:1337/api/login', {
 
         if (data.user) {
 			localStorage.setItem('token', data.user)
-			alert('Login successful')
+			//alert('Login successful')
 			window.location.href = '/dashboard'
 		} else {
 			alert('Please check your username and password')
@@ -32,6 +32,7 @@ const response = await fetch('http://localhost:1337/api/login', {
 	return (
 		<div>
 	<h1>Login</h1>
+	<h2>Please login to the QIMS system.   </h2>
 	<form onSubmit={loginUser}>
 		<input
 		value={email}
@@ -47,7 +48,9 @@ const response = await fetch('http://localhost:1337/api/login', {
 		placeholder="Password"
 		/>
 		<br />
+		<br />
 	    <input type="submit" value="Login" />
+		<h3>There is no "Forgot My Password" Function at this time so if you forget your password you are SOL!" </h3>
 		</form>
 		</div>
 	)
