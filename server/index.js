@@ -24,6 +24,8 @@ app.post('/api/register', async (req, res) => {
 		res.json({ status: 'ok' })
 	} catch (err) {
 		res.json({ status: 'error', error: 'Duplicate email' })
+		console.log(err)
+		
 	}
 })
 
@@ -56,7 +58,7 @@ app.post('/api/login', async (req, res) => {
 	}
 })
 
-app.get('/api/record', async (req, res) => {
+app.get('/api/createRecord', async (req, res) => {
 	const token = req.headers['x-access-token']
 
 	try {
@@ -64,28 +66,29 @@ app.get('/api/record', async (req, res) => {
 		const email = decoded.email
 		const user = await User.findOne({ email: email })
 
-		return res.json({ status: 'ok', quote: user.quote })
+		return res.json({ status: 'ok', record: user.record })
 	} catch (error) {
 		console.log(error)
 		res.json({ status: 'error', error: 'invalid token' })
 	}
 })
 
-app.post('/api/record', async (req, res) => {
+app.post('/api/createRecord', async (req, res) => {
 	const token = req.headers['x-access-token']
 
 	try {
 		const decoded = jwt.verify(token, 'secret123')
-		const email = decoded.email
-		await User.updateOne(
-			{ email: email },
-			{ $set: { quote: req.body.quote } }
+		const record = decoded.record
+		await record.updateOne(
+			{ record: record },
+			{ $set: { record: req.body.record } }
 		)
 
 		return res.json({ status: 'ok' })
 	} catch (error) {
-		console.log(error)
+		
 		res.json({ status: 'error', error: 'invalid token' })
+		console.log(error)
 	}
 })
 
