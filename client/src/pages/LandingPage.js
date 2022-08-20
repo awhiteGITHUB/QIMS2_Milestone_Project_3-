@@ -1,16 +1,23 @@
+import '../App.css'
 
 function Home() {
     return (
       <main>
-        <h1>HOME</h1>
+        <h1>QIMS Inventory Management</h1>
         <div >
-          <img height="300" width="500" src="http://localhost:5000/images/chia-fruit-drink.jpg" alt="Chia Fruit Shake" />
+        <h2>Welcome to QIMS system. Please login or click the Register button to create an account </h2>
           <div>
-            Photo by <a href="AUTHOR_LINK">Brenda Godinez</a> on <a href="UNSPLASH_LINK">Unsplash</a>
           </div>
         </div>
-        <a href="/places">
-          <button className="btn-primary">Places Page</button>
+        <br></br>
+        <br></br>
+        <a href="/Login">
+          <button className="btn-primary">Login</button>
+          </a>
+          <br></br>
+        <br></br>
+        <a href="/Register">
+          <button className="btn-primary">Register</button>
         </a>
       </main>
     );

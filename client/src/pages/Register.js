@@ -32,7 +32,7 @@ function App() {
 
 	return (
 		<div>
-			<h1>Register</h1>
+			<h1>CREATE ACCOUNT</h1>
 			<form onSubmit={registerUser}>
 				<input
 					value={name}
@@ -41,6 +41,7 @@ function App() {
 					placeholder="Name"
 				/>
 				<br />
+				<br />
 				<input
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
@@ -48,12 +49,14 @@ function App() {
 					placeholder="Email"
 				/>
 				<br />
+				<br />
 				<input
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 					type="password"
 					placeholder="Password"
 				/>
+				<br />
 				<br />
 				<input type="submit" value="Register" />
 			</form>

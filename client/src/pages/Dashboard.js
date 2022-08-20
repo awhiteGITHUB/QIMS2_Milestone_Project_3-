@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import jwt from 'jsonwebtoken'
+//import jwt from 'jsonwebtoken'
 import { useNavigate } from 'react-router-dom'
 	//const [record, setRecord] = useState('')
 
@@ -32,19 +32,8 @@ import { useNavigate } from 'react-router-dom'
       }
 
     }
-    useEffect(() => {
-      const token = localStorage.getItem('token')
-      if (token) {
-        const user = jwt.decode(token)
-        if (!user) {
-          localStorage.removeItem('token')
-          history.replace('/login')
-        } else {
-          populateRecord()
-        }
-      }
-    },)
-
+ 
+ 
 
 
 
@@ -76,6 +65,9 @@ import { useNavigate } from 'react-router-dom'
           />
           <br />
           <input type="submit" value=" Add Record" />
+          <br />
+          <br />
+          <input type="submit" value=" Show Record" />
         </form>
       </div>
     )
