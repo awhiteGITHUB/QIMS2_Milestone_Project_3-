@@ -4,7 +4,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import LandingPage from './pages/LandingPage'
-import './App.css'
+
 
 
 const API_URL = 'https://itunes.apple.com/search?term='
